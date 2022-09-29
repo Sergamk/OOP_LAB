@@ -1,0 +1,85 @@
+#include <iostream>
+using namespace std;
+
+class Sand_clock {
+    float aSt;   // private variables
+    float bSt;
+    float result;
+
+    public:
+    Sand_clock(); // Constructor without parameters
+    Sand_clock(float a, float b); // Constructor with parameters
+    ~Sand_clock(); // Destructor
+
+    void setA(float a);
+    void setB(float b);
+    
+    void calc();
+    void getA();
+    void getB();
+    void getVolume();
+};
+
+Sand_clock::Sand_clock (){
+    aSt = bSt = 0;
+    cout << "Constructor without parameters\n"<<endl;
+}
+
+Sand_clock::Sand_clock (float a, float b){
+    a = a;
+    b = b;
+    result = 0;
+    cout << "\nConstructor with parameters\t" << a << "\t" << b << endl;
+}
+
+Sand_clock::~Sand_clock (){
+    cout << "\nDestructor"<<endl;
+}
+
+void Sand_clock::setA(float a)
+{
+    aSt = a;
+}
+
+void Sand_clock::setB(float b)
+{
+    bSt = b;
+}
+
+void Sand_clock::calc(){
+    result = ((0,5*bSt*aSt)/2+(0.5*bSt*aSt)/2);
+}
+
+
+void Sand_clock::getA()
+{
+    cout << "\СТОРОНА А\t" << aSt << endl;
+}
+
+void Sand_clock::getB()
+{
+    cout << "\nСТОРОНА Б\t" << bSt << endl;
+}
+
+void Sand_clock::getVolume()
+{
+    cout << "\nПЛОЩА\t" << result << endl;
+}
+
+
+
+int main(){
+    
+    Sand_clock a;      
+    
+
+
+    a.setA(3);
+    a.setB(1.5);
+
+    a.calc();
+
+    a.getA();
+    a.getB();
+    a.getVolume();
+}

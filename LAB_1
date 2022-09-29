@@ -2,84 +2,58 @@
 using namespace std;
 
 class Sand_clock {
-    float aSt;   // private variables
-    float bSt;
-    float result;
+    float aSide;   // приватні змінні
+    float bSide;
+    float Area;
 
     public:
-    Sand_clock(); // Constructor without parameters
-    Sand_clock(float a, float b); // Constructor with parameters
-    ~Sand_clock(); // Destructor
+    Sand_clock(); // Конструктор без праметрів
+    Sand_clock(float a, float b); // Конструктор з параметрами
+    ~Sand_clock(); //Деструктор
 
     void setA(float a);
     void setB(float b);
     
     void calc();
-    void getA();
-    void getB();
-    void getVolume();
+    void p_sqrt();
 };
-
 Sand_clock::Sand_clock (){
-    aSt = bSt = 0;
+    aSide = bSide = 0;
     cout << "Constructor without parameters\n"<<endl;
 }
-
 Sand_clock::Sand_clock (float a, float b){
     a = a;
     b = b;
-    result = 0;
+    Area = 0;
     cout << "\nConstructor with parameters\t" << a << "\t" << b << endl;
 }
-
 Sand_clock::~Sand_clock (){
     cout << "\nDestructor"<<endl;
 }
-
 void Sand_clock::setA(float a)
 {
-    aSt = a;
+    aSide = a;
 }
-
 void Sand_clock::setB(float b)
 {
-    bSt = b;
+    bSide = b;
 }
-
 void Sand_clock::calc(){
-    result = ((0,5*bSt*aSt)/2+(0.5*bSt*aSt)/2);
+    Area = ((0,5*bSide*aSide)/2+(0.5*bSide*aSide)/2);
 }
 
-
-void Sand_clock::getA()
+void Sand_clock::p_sqrt()
 {
-    cout << "\СТОРОНА А\t" << aSt << endl;
+    cout << "\СТОРОНА А\t" << aSide << endl;
+    cout << "\nСТОРОНА Б\t" << bSide << endl;
+    cout << "\nПЛОЩА\t" << Area << endl;
 }
-
-void Sand_clock::getB()
-{
-    cout << "\nСТОРОНА Б\t" << bSt << endl;
-}
-
-void Sand_clock::getVolume()
-{
-    cout << "\nПЛОЩА\t" << result << endl;
-}
-
-
-
 int main(){
-    
     Sand_clock a;      
-    
-
-
     a.setA(3);
     a.setB(1.5);
+    
+  a.calc();
 
-    a.calc();
-
-    a.getA();
-    a.getB();
-    a.getVolume();
+    a.p_sqrt();
 }

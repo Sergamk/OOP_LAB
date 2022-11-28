@@ -1,0 +1,61 @@
+#include <iostream>
+#include <string>
+#include <ctime>
+using namespace std;
+
+class Array
+{
+int size;
+int *array;
+int sum=0;
+public:
+   Array(int size);
+   Array(const Array &obj);
+   ~Array();
+   void Count();
+};
+
+Array::Array(const Array &obj)
+{
+        cout << "\n" ;
+        array = new int[obj.size];
+        for (int i=0;i<obj.size;i++)
+        {
+        array[i]=obj.array[i];
+        size=obj.size;
+        cout << obj.array[i] << " " << endl;
+        }
+}
+
+Array::Array(int a)
+{
+        size = a;
+        array = new int[size];
+        for(int i=0; i < size; ++i)
+        {
+        if (i%2)
+        array[i] = i + 5.1;
+        else
+        array[i] = i + 4.2;
+          printf("%i ", array[i]);
+        }
+}
+
+Array::~Array()
+{
+   delete[]array;
+}
+
+void Array::Count()
+{
+    for(int i=0; i<size; ++i)
+    if((i+1)%3==0)
+    sum+=array[i];
+    cout << "\nsum: " << sum << endl;
+}
+
+int main()
+{
+ Array a(12);
+  a.Count();
+}

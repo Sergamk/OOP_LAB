@@ -1,0 +1,55 @@
+#include <iostream>
+#include <windows.h>
+using namespace std;
+
+// Визначаємо базовий клас Товар
+class Engine
+{
+public:
+virtual void GetInfo()=0;
+};
+
+class InternalEngine : public Engine
+{
+public:
+void GetInfo()
+{
+cout<<"Aston Martin Vulcan"<<endl;
+cout<<"Об'єм двигуна:	7.0 л. V12 "<<endl;
+cout<<"Потужність: 800 л.с. \n"<<endl;
+}
+};
+
+class ElectroEngine: public Engine
+{
+public:
+void GetInfo()
+{
+cout<<"Tesla Model S ( Plaid )"<<endl;
+cout<<"Потужність: 761 кВт"<<endl;
+cout<<"Кількість фаз: 3\n"<<endl;
+}
+};
+
+class EternalEngine: public Engine
+{
+public:
+void GetInfo()
+{
+cout<<"Perpetuum mobile"<<endl;
+cout<<"Не існує"<<endl;
+}
+};
+
+int main()
+{
+SetConsoleOutputCP(1251);
+Engine *A[3];
+InternalEngine  B; ElectroEngine C; EternalEngine D;
+A[0] = &B;
+A[1] = &C;
+A[2] = &D;
+
+for(int i=0; i<3; i++)
+A[i]->GetInfo();
+}

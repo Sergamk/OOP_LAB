@@ -1,0 +1,90 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Conus
+    {
+        public double radius;
+        public double heigh;
+        public double volume;
+
+        // конструктор
+        public Conus() { radius = 0; heigh = 0; volume = 0; }
+        // конструктор
+        public Conus(double r, double h) { radius = r; heigh = h; }
+
+        public void GetInfo()
+        {
+            Console.WriteLine($"R: {radius} H: {heigh} V: {volume}\n");
+        }
+        public void GetInfo1()
+        {
+            Console.WriteLine($"R: {radius} H: {heigh}\n");
+        }
+
+        public void SetRadius(double r)
+        {
+            radius = r;
+        }
+        public void SetHeigh(double h)
+        {
+            heigh = h;
+        }
+
+        public double GetVolume()
+        {
+            volume = Math.PI * (radius * radius) * heigh;
+            return volume;
+        }
+        public void ToString()
+        {
+            Console.WriteLine($"R: {radius} H: {heigh} V: {Math.Round(volume, 2)} \n");
+        }
+
+        public static Conus operator + (Conus n1, Conus n2)
+        {
+            Conus temp = new Conus();
+            temp.volume = n1.volume + n2.volume;
+            if (n1.radius > n2.radius) 
+            {
+                temp.radius = n1.radius;
+            }
+            if (n2.radius > n1.radius)
+            {
+                temp.radius = n2.radius;
+            }
+            temp.heigh = n1.heigh + n2.heigh;
+            return temp;
+        }
+
+
+    }
+    class Program
+    {
+            static void Main(string[] args)
+            {
+            Conus conus0 = new Conus();
+            Conus conus1 = new Conus();
+            Conus conus2 = new Conus(9, 4);
+
+            conus1.GetInfo();
+            conus2.GetInfo1();
+            conus2.GetVolume();
+
+            conus1.SetRadius(6);
+            conus1.SetHeigh(3);
+            conus1.GetVolume();
+            conus1.ToString();
+
+            conus0 = conus1 + conus2;
+            conus0.ToString();
+            Console.ReadKey();
+            }
+    }
+   
+}

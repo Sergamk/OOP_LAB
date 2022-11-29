@@ -1,0 +1,107 @@
+#include <iostream>
+//#include <windows.h>
+using namespace std;
+
+// Визначаємо базовий клас 
+class Goods
+{
+int price;
+string manufacturer;
+string category; // категорія
+public:
+void set_price(int num) { price = num; }
+int get_price() { return price; }
+void set_category(string text) { category = text; }
+string get_category() { return category; }
+void set_manufacturer(string text) { manufacturer = text; }
+string get_manufacturer() { return manufacturer; }
+};
+
+
+class Toy : public Goods
+{
+string toytype; 
+public:
+Toy(){string toytype="";}
+~Toy(){}
+void set_toytype(string text) { toytype = text; }
+string get_toytype() { return toytype; }
+void show ();
+};
+class Product : public Goods
+{
+string producttype; 
+public:
+Product(){string producttype="";}
+~Product(){}
+void set_producttype(string text) { producttype = text; }
+string get_producttype() { return producttype; }
+void show ();
+};
+class MilkProduct : public Goods
+{
+int date;
+string milkproducttype; 
+public:
+MilkProduct(){string milkproducttype="";}
+~MilkProduct(){}
+void set_date(int num) { date = num; }
+int get_date() { return date; }
+void set_milkproducttype(string text) { milkproducttype = text; }
+string get_milkproducttype() { return milkproducttype; }
+void show ();
+};
+
+void Toy::show()
+{
+cout<<"Категорія товару: "<< get_category()  <<endl;
+cout<<"Тип: "<<  toytype  <<endl;
+cout<<"Виробник: "<<  get_manufacturer() <<endl;
+cout<<"Ціна "<< get_price()  <<" грн"<<endl<<endl;
+}
+void Product::show()
+{
+cout<<"Категорія товару: "<< get_category()    <<endl;
+cout<<"Тип: "<<  producttype  <<endl;
+cout<<"Виробник: "<< get_manufacturer()   <<endl;
+cout<<"Ціна "<< get_price()  <<" грн"<<endl<<endl;
+}
+void MilkProduct::show()
+{
+cout<<"Категорія товару: "<<  get_category()   <<endl;
+cout<<"Тип: "<<  milkproducttype  <<endl;
+cout<<"Виробник: "<<  get_manufacturer() <<endl;
+
+cout<<"Ціна "<< get_price()  <<" грн"<<endl<<endl;
+}
+int main()
+{
+        if(true){
+
+
+Goods f;
+
+Toy a;
+Product b;
+MilkProduct c;
+
+a.set_category("Авто");
+a.set_toytype("Део Ланос");
+a.set_manufacturer("Польща");
+a.set_price(300000);
+
+b.set_category("Поїзд");
+b.set_producttype("Хюндай");
+b.set_manufacturer("Корея");
+b.set_price(10000000);
+
+c.set_category("Авто");
+c.set_milkproducttype("Запорожець");
+c.set_manufacturer("Україна");
+c.set_price(10000);
+
+a.show();
+b.show();
+c.show();
+        }
+}
